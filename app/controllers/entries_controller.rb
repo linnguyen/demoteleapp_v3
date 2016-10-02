@@ -11,9 +11,17 @@ class EntriesController < ApplicationController
 			render 'pages/home'
 		end
 	end
+     
+	def index
+		@entries=Entry.paginate(page: params[:page])
+	end
+    
+    def show
+    	@entry=Entry.find(params[:id])
+    end
 
     private
     def entry_params
-    	params.require(:entry).permit(:content)
+    	params.require(:entry).permit(:content,:title)
     end
 end

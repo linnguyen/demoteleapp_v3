@@ -1,0 +1,12 @@
+<div class="entries">
+  <%= link_to gravatar_for(@entry.user,size: 200),@entry.user %>
+  <span class="title" ><i><%= @entry.title %></i></span>
+  <span class="content"><%= @entry.content %></span>
+  <span class="timestamp">
+  	Posted <%=time_ago_in_words(@entry.created_at) %> ago
+  </span>
+</div>
+<session class="entry_form">
+	<input type="text" name="" placeholder="add a comment">
+	<input type="submit" name="" value="comment">
+</section>
