@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user=User.find(params[:id])
-		@microposts = @user.microposts.paginate(page: params[:page])
+		@entries = @user.entries.paginate(page: params[:page])
 	end
 
 	def new
@@ -46,10 +46,5 @@ class UsersController < ApplicationController
 	  		:password_confirmation)
 	  end
       
-	  def logged_in_user
-	  	unless logged_in?
-	  		flash[:danger]="Please login"
-	  		redirect_to 'login_url'
-	  	end
-	  end
+	  
 end
