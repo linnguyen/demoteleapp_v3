@@ -7,6 +7,8 @@
   	Posted <%=time_ago_in_words(entry.created_at) %> ago
   </span>
   <%if logged_in? %>
-  <%=link_to "Add a comment",entry_path(entry) %>
+     <% if current_user.following?(entry.user)||current_user==entry.user %>
+       <%=link_to "Add a comment",entry_path(entry) %>
+       <% end %>
   <% end %>
 </li>
